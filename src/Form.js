@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import './Form.css';
+import sanitizeHtml from 'sanitize-html';
 
 function Form() {
+    const dirtyHtml = "Customize Your Pizza 🍕"
     const [name, setName] = useState("")
     const [peperoni, setPeperoni] = useState(false)
     const [cheese, setCheese] = useState(false)
@@ -10,7 +12,9 @@ function Form() {
     return (
         <>
             <div className="order-form">
-                <h1>Customize Your Pizza 🍕</h1>
+                {/* <h1>Customize Your Pizza 🍕</h1> */}
+                {sanitizeHtml(dirtyHtml)}
+                {console.log(sanitizeHtml(dirtyHtml))}
                 <form className="Form">
                     <label>
                         Name for your order: 
